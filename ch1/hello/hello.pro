@@ -19,3 +19,5 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 # Input
 SOURCES += hello.cpp
+
+QT += widgets

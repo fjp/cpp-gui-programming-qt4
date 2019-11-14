@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -O2 -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I. -I. -I/usr/local/Cellar/qt/5.11.2/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt/5.11.2/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers -I/usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang -F/usr/local/Cellar/qt/5.11.2/lib
+INCPATH       = -I. -I. -I/usr/local/Cellar/qt/5.11.2/lib/QtWidgets.framework/Headers -I/usr/local/Cellar/qt/5.11.2/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt/5.11.2/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers -I/usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang -F/usr/local/Cellar/qt/5.11.2/lib
 QMAKE         = /usr/local/opt/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = hello1.0.0
 DISTDIR = /Users/fjp/git/cpp-gui-programming-qt4/ch1/hello/.tmp/hello1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.11 -Wl,-rpath,@executable_path/Frameworks
-LIBS          = $(SUBLIBS) -F/usr/local/Cellar/qt/5.11.2/lib -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/usr/local/Cellar/qt/5.11.2/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -213,6 +213,7 @@ DIST          = /usr/local/Cellar/qt/5.11.2/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/qt_config.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang/qmake.conf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/exclusive_builds.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/mac/sdk.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/toolchain.prf \
@@ -229,6 +230,7 @@ DIST          = /usr/local/Cellar/qt/5.11.2/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/resources.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/moc.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/unix/opengl.prf \
+		/usr/local/Cellar/qt/5.11.2/mkspecs/features/uic.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/unix/thread.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/qmake_use.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/file_copies.prf \
@@ -420,6 +422,7 @@ Makefile: hello.pro /usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang/qmake.conf /u
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/qt_config.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang/qmake.conf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/exclusive_builds.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/mac/sdk.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/toolchain.prf \
@@ -436,6 +439,7 @@ Makefile: hello.pro /usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang/qmake.conf /u
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/resources.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/moc.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/unix/opengl.prf \
+		/usr/local/Cellar/qt/5.11.2/mkspecs/features/uic.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/unix/thread.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/qmake_use.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/file_copies.prf \
@@ -446,6 +450,7 @@ Makefile: hello.pro /usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang/qmake.conf /u
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/yacc.prf \
 		/usr/local/Cellar/qt/5.11.2/mkspecs/features/lex.prf \
 		hello.pro \
+		/usr/local/Cellar/qt/5.11.2/lib/QtWidgets.framework/QtWidgets.prl \
 		/usr/local/Cellar/qt/5.11.2/lib/QtGui.framework/QtGui.prl \
 		/usr/local/Cellar/qt/5.11.2/lib/QtCore.framework/QtCore.prl
 	$(QMAKE) -o Makefile hello.pro
@@ -610,6 +615,7 @@ Makefile: hello.pro /usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang/qmake.conf /u
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/qt_config.prf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang/qmake.conf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/exclusive_builds.prf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/mac/sdk.prf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/toolchain.prf:
@@ -626,6 +632,7 @@ Makefile: hello.pro /usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang/qmake.conf /u
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/resources.prf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/moc.prf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/unix/opengl.prf:
+/usr/local/Cellar/qt/5.11.2/mkspecs/features/uic.prf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/unix/thread.prf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/qmake_use.prf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/file_copies.prf:
@@ -636,6 +643,7 @@ Makefile: hello.pro /usr/local/Cellar/qt/5.11.2/mkspecs/macx-clang/qmake.conf /u
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/yacc.prf:
 /usr/local/Cellar/qt/5.11.2/mkspecs/features/lex.prf:
 hello.pro:
+/usr/local/Cellar/qt/5.11.2/lib/QtWidgets.framework/QtWidgets.prl:
 /usr/local/Cellar/qt/5.11.2/lib/QtGui.framework/QtGui.prl:
 /usr/local/Cellar/qt/5.11.2/lib/QtCore.framework/QtCore.prl:
 qmake: FORCE
@@ -678,6 +686,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r hello.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -705,6 +714,8 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
+compiler_uic_make_all:
+compiler_uic_clean:
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
 compiler_yacc_decl_make_all:
@@ -717,7 +728,10 @@ compiler_clean: compiler_moc_predefs_clean
 
 ####### Compile
 
-hello.o: hello.cpp 
+hello.o: hello.cpp /usr/local/Cellar/qt/5.11.2/lib/QtWidgets.framework/Headers/QApplication \
+		/usr/local/Cellar/qt/5.11.2/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/Cellar/qt/5.11.2/lib/QtWidgets.framework/Headers/QLabel \
+		/usr/local/Cellar/qt/5.11.2/lib/QtWidgets.framework/Headers/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hello.o hello.cpp
 
 ####### Install
