@@ -1,5 +1,19 @@
 # cpp-gui-programming-qt4
 
+
+## Build instructions
+
+Each example folder usually contains a `<folder_name>.pro` file which can be used to create a platform specific `Makefile`
+using the following command:
+
+```
+qmake <folder_name>.pro
+```
+
+With the generated `Makefile` it is possible to execute `make` to build the target.
+
+## Build intstructions if example folder contains no .pro file
+
 To buil each example go to its folder and run the following command:
 
 ```
@@ -22,4 +36,4 @@ Then execute the following command to generate a `Makefile`.
 qmake <folder_name>.pro
 ```
 
-Wit the generated `Makefile` it is possible to execute `make` to build the target.
+With the generated `Makefile` it is possible to execute `make` to build the target.
