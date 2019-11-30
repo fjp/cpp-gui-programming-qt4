@@ -37,3 +37,10 @@ qmake <folder_name>.pro
 ```
 
 With the generated `Makefile` it is possible to execute `make` to build the target.
+After the target was created without errors it is possible to run it with `./target_name`.
+
+## Migration from Qt4 to Qt5
+
+In Qt5 most of the previously known as QtGui functionality now is being called QtWidgets.
+
+Use `#include <QtWidgets>` instead of `#include <QtGui>`.
