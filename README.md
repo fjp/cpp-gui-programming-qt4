@@ -40,7 +40,8 @@ qmake <folder_name>.pro
 ```
 
 With the generated `Makefile` it is possible to execute `make` to build the target.
-After the target was created without errors it is possible to run it with `./target_name`.
+After the target was created (windows: `target_name.exe`, mac: `target_name.app`, linux: `target_name`) 
+without errors it is possible to run it (windows: `target_name.exe`, mac: `open target_name.app`, linux: `./target_name`).
 
 ## Migration from Qt4 to Qt5
 
