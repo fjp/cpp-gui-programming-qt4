@@ -1,4 +1,7 @@
-# cpp-gui-programming-qt4
+# Book: C++ GUI Programming with Qt4, examples in Qt5
+
+The book is from 2008 with the examples shown working in Qt4.
+Because of the new Qt5 version the examples in this repository are adapted to use Qt5, not Qt4 as the name suggests.
 
 
 ## Build instructions
