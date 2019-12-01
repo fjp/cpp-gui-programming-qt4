@@ -21,6 +21,9 @@
        <property name="text">
         <string>&amp;Cell Location:</string>
        </property>
+       <property name="buddy">
+        <cstring>lineEdit</cstring>
+       </property>
       </widget>
      </item>
      <item>
@@ -67,6 +70,11 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>okButton</tabstop>
+  <tabstop>cancelButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
