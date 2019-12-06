@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>SortDialog</class>
+ <widget class="QDialog" name="SortDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Sort</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_4">
    <item row="0" column="0">
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="primaryGroupBox">
      <property name="title">
       <string>&amp;Primary Key</string>
      </property>
@@ -28,7 +28,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox">
+       <widget class="QComboBox" name="primaryColumnCombo">
         <item>
          <property name="text">
           <string>None</string>
@@ -57,7 +57,7 @@
        </widget>
       </item>
       <item row="1" column="1" colspan="2">
-       <widget class="QComboBox" name="comboBox_2">
+       <widget class="QComboBox" name="primaryOrderCombo">
         <item>
          <property name="text">
           <string>Ascending</string>
@@ -131,7 +131,7 @@
     </spacer>
    </item>
    <item row="2" column="0">
-    <widget class="QGroupBox" name="groupBox_2">
+    <widget class="QGroupBox" name="secondaryGroupBox">
      <property name="title">
       <string>&amp;Secondary Key</string>
      </property>
@@ -144,7 +144,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox_3">
+       <widget class="QComboBox" name="secondaryColumnCombo">
         <item>
          <property name="text">
           <string>None</string>
@@ -173,7 +173,7 @@
        </widget>
       </item>
       <item row="1" column="1" colspan="2">
-       <widget class="QComboBox" name="comboBox_4">
+       <widget class="QComboBox" name="secondaryOrderCombo">
         <item>
          <property name="text">
           <string>Ascending</string>
@@ -190,7 +190,7 @@
     </widget>
    </item>
    <item row="3" column="0">
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QGroupBox" name="tertiaryGroupBox">
      <property name="title">
       <string>&amp;Tertiary Key</string>
      </property>
@@ -203,7 +203,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox_5">
+       <widget class="QComboBox" name="tertiaryColumnCombo">
         <item>
          <property name="text">
           <string>None</string>
@@ -232,7 +232,7 @@
        </widget>
       </item>
       <item row="1" column="1" colspan="2">
-       <widget class="QComboBox" name="comboBox_6">
+       <widget class="QComboBox" name="tertiaryOrderCombo">
         <item>
          <property name="text">
           <string>Ascending</string>
@@ -250,6 +250,17 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>primaryColumnCombo</tabstop>
+  <tabstop>primaryOrderCombo</tabstop>
+  <tabstop>secondaryColumnCombo</tabstop>
+  <tabstop>secondaryOrderCombo</tabstop>
+  <tabstop>tertiaryColumnCombo</tabstop>
+  <tabstop>tertiaryOrderCombo</tabstop>
+  <tabstop>okButton</tabstop>
+  <tabstop>cancelButton</tabstop>
+  <tabstop>moreButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
